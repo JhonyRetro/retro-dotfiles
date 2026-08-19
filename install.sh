@@ -30,10 +30,10 @@ echo -e "\nExecuting step 1..."
 ./scripts/install_packages.sh
 
 echo -e "\nExecuting step 2..."
-./scripts/setup_configs.sh
+./scripts/config_setup.sh
 
 echo -e "\nExecuting step 3..."
-./scripts/setup_system.sh
+./scripts/system_setup.sh
 
 echo -e "
 ╔══════════════════════════════════════╗
