@@ -15,7 +15,7 @@ echo "Enabling TLP..."
 sudo systemctl enable tlp.service
 
 echo "Enabling Ly login manager..."
-sudo systemctl enable -f ly.service
+sudo systemctl enable -f ly@tty1.service
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
