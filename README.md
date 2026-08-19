@@ -10,7 +10,7 @@ These are my own customized configuration files for my Hyprland setup on Arch Li
 - Quick Spanish keyboard setup (as I've said, these are my files!!, and this was a PITA)
 
 ## Video demo
-<https://github.com/JhonyRetro/retro-dotfiles/blob/3de6f37ffec452a6a7713231e79fc76acf6f0eba/assets/quick_demo.mp4>
+<https://github.com/user-attachments/assets/3f852f84-3d95-48a7-b6e7-19cc0ce3cdc9>
 
 ## IMPORTANT!!
 If you are using a NVIDIA GPU (as in my case), you should uncomment the two enviroment variables in the uwsm config folder, due to recommendations from the [Hyprland Wiki](https://wiki.hypr.land/Nvidia/)
