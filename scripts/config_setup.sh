@@ -8,7 +8,7 @@ if ! command -v stow &> /dev/null; then
     exit 1
 fi
 
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR="$(cd "../$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 if [ ! -d "$DOTFILES_DIR/configs" ]; then
     echo "Error: 'configs' folder not found in $DOTFILES_DIR. Make sure to clone the repository cleanly."
