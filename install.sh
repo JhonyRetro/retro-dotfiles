@@ -27,13 +27,13 @@ chmod +x scripts/setup-system.sh
 echo "Scripts are now executable."
 
 echo -e "\nExecuting step 1..."
-./scripts/install-packages.sh
+./scripts/install_packages.sh
 
 echo -e "\nExecuting step 2..."
-./scripts/setup-configs.sh
+./scripts/setup_configs.sh
 
 echo -e "\nExecuting step 3..."
-./scripts/setup-system.sh
+./scripts/setup_system.sh
 
 echo -e "
 ╔══════════════════════════════════════╗
