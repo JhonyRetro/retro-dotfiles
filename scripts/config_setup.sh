@@ -20,5 +20,24 @@ cd "$DOTFILES_DIR"
 
 stow -R -t "$HOME" configs
 
+echo "Generating default wallpaper and color palette..."
+ln -sf "$HOME/.config/hypr/wallpapers/archlinux.png" /tmp/wallpaper
+if command -v wal &> /dev/null; then
+	wal -i -n -q "/tmp/wallpaper"
+	echo "Color palette generated successfully."
+else
+	echo "Pywal is not installed, skipping..."
+fi
+
+echo "Applying GTK settings..."
+GTK_THEME="adw-gtk3-dark"
+ICON_THEME="Papirus-Dark"
+
+gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
+gsettings set org.gnome.desktop.interface icon-theme "$ICON_THEME"
+gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+
+echo "Settings applied to dconf."
+
 echo -e "\nStep 2 completed successfully!"
 echo "retro-dotfiles' contents are now copied in your system."
