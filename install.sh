@@ -22,8 +22,8 @@ fi
 sudo -v
 echo -e "\nSetting up installation scripts..."
 chmod +x scripts/install_packages.sh
-chmod +x scripts/setup_configs.sh
-chmod +x scripts/setup_system.sh
+chmod +x scripts/config_setup.sh
+chmod +x scripts/system_setup.sh
 echo "Scripts are now executable."
 
 echo -e "\nExecuting step 1..."
