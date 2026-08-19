@@ -26,7 +26,7 @@ stow -R -t "$HOME" configs
 echo "Generating default wallpaper and color palette..."
 ln -sf "$HOME/.config/hypr/wallpapers/archlinux.png" /tmp/wallpaper
 if command -v wal &> /dev/null; then
-	wal -i -n -q "/tmp/wallpaper"
+	wal -i "/tmp/wallpaper" -n -q
 	echo "Color palette generated successfully."
 else
 	echo "Pywal is not installed, skipping..."
