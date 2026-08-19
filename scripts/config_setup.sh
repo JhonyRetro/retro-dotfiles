@@ -9,10 +9,13 @@ if ! command -v stow &> /dev/null; then
 fi
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-echo "Current wd: $DOTFILES_DIR"
 if [ ! -d "$DOTFILES_DIR/configs" ]; then
     echo "Error: 'configs' folder not found in $DOTFILES_DIR. Make sure to clone the repository cleanly."
     exit 1
+fi
+
+if [ -f "$HOME/.zshrc" ]; then
+	rm -f $HOME/.zshrc
 fi
 
 echo "Linking 'configs/' contents to $HOME..."
