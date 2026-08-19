@@ -19,6 +19,7 @@ sudo systemctl enable -f ly@tty1.service
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 echo "Linking ly configuration..."
+sudo mv /etc/ly/config.ini /etc/ly/config.bak
 sudo stow -d "$DOTFILES_DIR" -R -t / system
 
 echo "Step 3 completed successfully!"
