@@ -24,7 +24,7 @@ cd "$DOTFILES_DIR"
 stow -R -t "$HOME" configs
 
 echo "Generating default wallpaper and color palette..."
-ln -sf "$HOME/.config/hypr/wallpapers/archlinux.png" /tmp/wallpaper
+sudo ln -sf "$HOME/.config/hypr/wallpapers/archlinux.png" /tmp/wallpaper
 if command -v wal &> /dev/null; then
 	wal -i "/tmp/wallpaper" -n -q
 	echo "Color palette generated successfully."
