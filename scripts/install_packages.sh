@@ -21,7 +21,7 @@ else
     echo "yay is already installed."
 fi
 
-PKG_FILE="pkg.lst"
+PKG_FILE="scripts/pkg.lst"
 
 if [ -f "$PKG_FILE" ]; then
     echo "Reading package list: $PKG_FILE..."
