@@ -104,3 +104,5 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias fastfetch=$HOME/.config/fastfetch/random_logo.sh
 fastfetch
+
+export PATH=$PATH:/home/jhony/.local/bin
