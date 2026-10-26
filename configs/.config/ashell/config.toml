@@ -92,11 +92,11 @@ group_by_monitor = true
 [appearance]
 font_name = "NotoSansM Nerd Font Mono Bold"
 scale_factor = 1.2
-success_color = "#3E6B82"
-warning_color = "#4C738D"
-danger_color = "#A7B475"
-text_color = "#ced1d0"
-workspace_colors = [ "#B96FB3", "#55939F", "#5FACDE" ]
+success_color = "#7A9FA0"
+warning_color = "#7DA3A4"
+danger_color = "#6F8F92"
+text_color = "#bfd5d5"
+workspace_colors = [ "#89B4B4", "#8FBCBB", "#8FBDBC" ]
 opacity = 0.8
 backdrop = 0.3
 blur = "always"
@@ -105,10 +105,10 @@ blur = "always"
 surface = "solid"
 
 [appearance.primary_color]
-base = "#B96FB3"
-text = "#111519"
+base = "#89B4B4"
+text = "#1b1e25"
 
 [appearance.background_color]
-base = "#111519"
-weak = "#111519"
-strong = "#909291"
+base = "#1b1e25"
+weak = "#1b1e25"
+strong = "#859595"
