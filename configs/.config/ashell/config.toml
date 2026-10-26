@@ -1,12 +1,10 @@
-# For obvious reasons, this is in Spanish beacuse I am from Spain! :D
-# Change accordingly to your language preferences. Same goes for weather city
 language = "es-ES"
 region = "es-ES"
 
 # MODULES
 [updates]
-check_cmd = "checkupdates; yay -Qua"
-update_cmd = 'kitty bash -c "yay -Syu && echo Listo, presiona ENTER para salir; read" &'
+check_cmd = "checkupdates; yay -Qua; flatpak list --columns=application,version,latest --app | awk '$2 != $3 {print $1 \" \" $2 \" -> \" $3}' "
+update_cmd = 'kitty bash -c "yay -Syu; flatpak update && echo Listo, presiona ENTER para salir; read" &'
 interval = 1800
 
 outputs = "All"
@@ -46,8 +44,11 @@ peripheral_indicators = "All"
 volume_step = 1
 
 [media_player]
-max_title_length = 50
+max_text_length = 30
 indicator_format = "IconAndTitle"
+indicator_fields = ["Title"]
+menu_visualizer = true
+indicator_visualizer = "Before"
 
 [system_info]
 indicators = [ "Cpu", "Memory", "Temperature"]
@@ -73,26 +74,35 @@ warn_threshold = 60
 alert_threshold = 80
 sensor = "Cpu"
 
-
 [tempo]
 clock_format = "%H:%M"
 weather_location = { City = "Madrid" }
 weather_indicator = "IconAndTemperature"
 
 [window_title]
-mode = "Class"
-truncate_title_after_length = 75
+mode = "Title"
+truncate_title_after_length = 35
+
+[workspaces]
+disable_special_workspaces = true
+visibility_mode = "MonitorSpecific"
+group_by_monitor = true
 
 # APPEARANCE
 [appearance]
 font_name = "NotoSansM Nerd Font Mono Bold"
-scale_factor = 1.3
-style = "Solid"
+scale_factor = 1.2
 success_color = "#3E6B82"
 warning_color = "#4C738D"
 danger_color = "#A7B475"
 text_color = "#ced1d0"
 workspace_colors = [ "#B96FB3", "#55939F", "#5FACDE" ]
+opacity = 0.8
+backdrop = 0.3
+blur = "always"
+
+[appearance.bar]
+surface = "solid"
 
 [appearance.primary_color]
 base = "#B96FB3"
