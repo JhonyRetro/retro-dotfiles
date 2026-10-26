@@ -1,6 +1,6 @@
 export SHELL=/usr/bin/zsh
-export LIBVA_DRIVER_NAME=nvidia
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
+# export LIBVA_DRIVER_NAME=nvidia
+# export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export GDK_BACKEND="wayland,x11,*"
 export QT_QPA_PLATFORM="wayland;xcb"
 export SDL_VIDEODRIVER=wayland
