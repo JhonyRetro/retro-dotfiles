@@ -3,7 +3,12 @@ region = "es-ES"
 
 # MODULES
 [updates]
-check_cmd = "checkupdates; yay -Qua; flatpak list --columns=application,version,latest --app | awk '$2 != $3 {print $1 \" \" $2 \" -> \" $3}' "
+check_cmd = '''
+checkupdates; yay -Qua
+awk -F'\t' 'NR==FNR {v[$1]=$2; next} {print $1, (v[$1] != "" ? v[$1] : "?"), "->", $2}' \
+  <(flatpak list --app --columns=application,version) \
+  <(flatpak remote-ls --updates --app --columns=application,version)
+'''
 update_cmd = 'kitty bash -c "yay -Syu; flatpak update && echo Listo, presiona ENTER para salir; read" &'
 interval = 1800
 
