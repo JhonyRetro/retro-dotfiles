@@ -23,7 +23,7 @@ enabled = true
 [modules]
 left = [ "SystemInfo", "Tempo", "Workspaces"]
 center = [ "WindowTitle"]
-right = [ "MediaPlayer" , [ "Updates", "Tray", "Settings"]]
+right = [ "MediaPlayer" , [ "Updates", "Tray", "Settings", "CustomNotifications"]]
 
 [settings]
 lock_cmd = "$HOME/.config/hypr/hyprlock/scripts/lock.sh &"
@@ -35,7 +35,7 @@ bluetooth_more_cmd = "blueman-manager"
 hibernate_cmd = "systemctl hibernate"
 indicators = ["Bluetooth", "Network", "Brightness", "Audio", "Microphone", "Battery"]
 
-battery_format = "IconAndTime"
+battery_format = "IconAndPercentageAndTime"
 brightness_indicator_format = "IconAndPercentage"
 audio_indicator_format = "IconAndPercentage"
 microphone_indicator_format = "IconAndPercentage"
@@ -88,15 +88,24 @@ disable_special_workspaces = true
 visibility_mode = "MonitorSpecific"
 group_by_monitor = true
 
+[[CustomModule]]
+name = "CustomNotifications"
+icon = ""
+command = "swaync-client -t -sw"
+on_right_click = "swaync-client -d"
+listen_cmd = "swaync-client -swb"
+icons.'dnd.*' = ""
+alert = ".*notification"
+
 # APPEARANCE
 [appearance]
 font_name = "NotoSansM Nerd Font Mono Bold"
 scale_factor = 1.2
-success_color = "#7A9FA0"
-warning_color = "#7DA3A4"
-danger_color = "#6F8F92"
-text_color = "#bfd5d5"
-workspace_colors = [ "#89B4B4", "#8FBCBB", "#8FBDBC" ]
+success_color = "#AA778A"
+warning_color = "#7096AD"
+danger_color = "#60748C"
+text_color = "#c3d7dd"
+workspace_colors = [ "#B88FA8", "#A497A0", "#C79FA0" ]
 opacity = 0.8
 backdrop = 0.3
 blur = "always"
@@ -105,10 +114,10 @@ blur = "always"
 surface = "solid"
 
 [appearance.primary_color]
-base = "#89B4B4"
-text = "#1b1e25"
+base = "#B88FA8"
+text = "#181b22"
 
 [appearance.background_color]
-base = "#1b1e25"
-weak = "#1b1e25"
-strong = "#859595"
+base = "#181b22"
+weak = "#181b22"
+strong = "#88969a"
