@@ -3,7 +3,7 @@ reload_ashell() {
     local GENERATED="$HOME/.cache/wal/ashell.toml"
 
     if [ ! -f "$GENERATED" ]; then
-        echo "Error: pywal no ha generado $GENERATED."
+        echo "Error: pywal has not generated $GENERATED."
         return 1
     fi
 
@@ -12,6 +12,15 @@ reload_ashell() {
 
     killall ashell > /dev/null 2>&1
     ashell & disown
+}
+
+reload_hyprland() {
+    source "$HOME/.cache/wal/colors.sh"
+    local C1="rgb(${color1:1})"
+    local C2="rgb(${color2:1})"
+    local BG="rgb(${background:1})"
+
+    hyprctl eval "hl.config({ general = { col = { active_border = { colors = {'$C1', '$C2'}, angle = 45 }, inactive_border = '$BG' } } })"
 }
 
 WALLPAPER_DIR="$HOME/.config/hypr/wallpapers"
