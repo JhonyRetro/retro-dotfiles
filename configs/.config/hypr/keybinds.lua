@@ -80,5 +80,5 @@ hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("hyprpicker -an"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind("switch:[Lid Switch]", hl.dsp.exec_cmd("systemctl suspend"))
 
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("$HOME/.config/hypr/wallpapers/wallpaper_select.sh"))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("$HOME/.config/hypr/scripts/wallpaper_select.sh"))
 
