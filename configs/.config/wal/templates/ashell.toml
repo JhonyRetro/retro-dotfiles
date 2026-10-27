@@ -3,7 +3,12 @@ region = "es-ES"
 
 # MODULES
 [updates]
-check_cmd = "checkupdates; yay -Qua; flatpak list --columns=application,version,latest --app | awk '$2 != $3 {print $1 \" \" $2 \" -> \" $3}' "
+check_cmd = '''
+checkupdates; yay -Qua
+awk -F'\t' 'NR==FNR {{v[$1]=$2; next}} {{print $1, (v[$1] != "" ? v[$1] : "?"), "->", $2}}' \
+  <(flatpak list --app --columns=application,version) \
+  <(flatpak remote-ls --updates --app --columns=application,version)
+'''
 update_cmd = 'kitty bash -c "yay -Syu; flatpak update && echo Listo, presiona ENTER para salir; read" &'
 interval = 1800
 
@@ -23,7 +28,7 @@ enabled = true
 [modules]
 left = [ "SystemInfo", "Tempo", "Workspaces"]
 center = [ "WindowTitle"]
-right = [ "MediaPlayer" , [ "Updates", "Tray", "Settings"]]
+right = [ "MediaPlayer" , [ "Updates", "Tray", "Settings", "CustomNotifications"]]
 
 [settings]
 lock_cmd = "$HOME/.config/hypr/hyprlock/scripts/lock.sh &"
@@ -35,7 +40,7 @@ bluetooth_more_cmd = "blueman-manager"
 hibernate_cmd = "systemctl hibernate"
 indicators = ["Bluetooth", "Network", "Brightness", "Audio", "Microphone", "Battery"]
 
-battery_format = "IconAndTime"
+battery_format = "IconAndPercentageAndTime"
 brightness_indicator_format = "IconAndPercentage"
 audio_indicator_format = "IconAndPercentage"
 microphone_indicator_format = "IconAndPercentage"
@@ -76,7 +81,7 @@ sensor = "Cpu"
 
 [tempo]
 clock_format = "%H:%M"
-weather_location = { City = "Madrid" }
+weather_location = {{ City = "Madrid" }}
 weather_indicator = "IconAndTemperature"
 
 [window_title]
@@ -88,15 +93,24 @@ disable_special_workspaces = true
 visibility_mode = "MonitorSpecific"
 group_by_monitor = true
 
+[[CustomModule]]
+name = "CustomNotifications"
+icon = ""
+command = "swaync-client -t -sw"
+on_right_click = "swaync-client -d"
+listen_cmd = "swaync-client -swb"
+icons.'dnd.*' = ""
+alert = ".*notification"
+
 # APPEARANCE
 [appearance]
 font_name = "NotoSansM Nerd Font Mono Bold"
 scale_factor = 1.2
-success_color = "#7A9FA0"
-warning_color = "#7DA3A4"
-danger_color = "#6F8F92"
-text_color = "#bfd5d5"
-workspace_colors = [ "#89B4B4", "#8FBCBB", "#8FBDBC" ]
+success_color = "{color2}"
+warning_color = "{color3}"
+danger_color = "{color1}"
+text_color = "{foreground}"
+workspace_colors = [ "{color4}", "{color5}", "{color6}" ]
 opacity = 0.8
 backdrop = 0.3
 blur = "always"
@@ -105,10 +119,10 @@ blur = "always"
 surface = "solid"
 
 [appearance.primary_color]
-base = "#89B4B4"
-text = "#1b1e25"
+base = "{color4}"
+text = "{background}"
 
 [appearance.background_color]
-base = "#1b1e25"
-weak = "#1b1e25"
-strong = "#859595"
+base = "{background}"
+weak = "{color0}"
+strong = "{color8}"

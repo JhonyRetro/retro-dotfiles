@@ -103,6 +103,8 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias fastfetch=$HOME/.config/fastfetch/random_logo.sh
+alias clear="clear; fastfetch"
+alias ashell-reload='wal -R -n -q && cp ~/.cache/wal/ashell.toml ~/.config/ashell/config.toml'
 fastfetch
 
 export PATH=$PATH:/home/jhony/.local/bin

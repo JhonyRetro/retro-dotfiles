@@ -77,8 +77,8 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"), { locked = true
 hl.bind("Print", hl.dsp.exec_cmd("hyprshot -m region"))
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd("hyprshot -m region"), { release = true })
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("hyprpicker -an"))
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("$HOME/.config/hypr/hyprlock/scripts/lock.sh"))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind("switch:[Lid Switch]", hl.dsp.exec_cmd("systemctl suspend"))
 
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("$HOME/.config/hypr/wallpapers/wallpaper_select.sh"))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("$HOME/.config/hypr/scripts/wallpaper_select.sh"))
 
