@@ -55,7 +55,5 @@ if [ -n "$SELECTION" ]; then
 
     swaync-client -rs
 
-    ln -sf "$WALLPAPER_PATH" "$HOME/.local/share/retro-dotfiles/current_wallpaper"
-   
     notify-send "Wallpaper changed!" "Applied: $SELECTION"
 fi

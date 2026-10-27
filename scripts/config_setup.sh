@@ -23,9 +23,7 @@ cd "$DOTFILES_DIR"
 
 stow -R -t "$HOME" configs
 
-echo "Generating default wallpaper and color palette..."
-sudo ln -sf "$HOME/.config/hypr/wallpapers/archlinux.png" "$HOME/.local/share/retro-dotfiles/current_wallpaper"
-
+echo "Generating color palette..."
 if command -v wal &> /dev/null; then
 	wal -i "$HOME/.local/share/retro-dotfiles/current_wallpaper" -n -q
 	mkdir -p "$HOME/.config/ashell"
