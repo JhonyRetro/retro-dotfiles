@@ -5,7 +5,7 @@ region = "es-ES"
 [updates]
 check_cmd = '''
 checkupdates; yay -Qua
-awk -F'\t' 'NR==FNR {v[$1]=$2; next} {print $1, (v[$1] != "" ? v[$1] : "?"), "->", $2}' \
+awk -F'\t' 'NR==FNR {{v[$1]=$2; next}} {{print $1, (v[$1] != "" ? v[$1] : "?"), "->", $2}}' \
   <(flatpak list --app --columns=application,version) \
   <(flatpak remote-ls --updates --app --columns=application,version)
 '''
@@ -81,7 +81,7 @@ sensor = "Cpu"
 
 [tempo]
 clock_format = "%H:%M"
-weather_location = { City = "Madrid" }
+weather_location = {{ City = "Madrid" }}
 weather_indicator = "IconAndTemperature"
 
 [window_title]
@@ -106,11 +106,11 @@ alert = ".*notification"
 [appearance]
 font_name = "NotoSansM Nerd Font Mono Bold"
 scale_factor = 1.2
-success_color = "#AA778A"
-warning_color = "#7096AD"
-danger_color = "#60748C"
-text_color = "#c3d7dd"
-workspace_colors = [ "#B88FA8", "#A497A0", "#C79FA0" ]
+success_color = "{color2}"
+warning_color = "{color3}"
+danger_color = "{color1}"
+text_color = "{foreground}"
+workspace_colors = [ "{color4}", "{color5}", "{color6}" ]
 opacity = 0.8
 backdrop = 0.3
 blur = "always"
@@ -119,10 +119,10 @@ blur = "always"
 surface = "solid"
 
 [appearance.primary_color]
-base = "#B88FA8"
-text = "#181b22"
+base = "{color4}"
+text = "{background}"
 
 [appearance.background_color]
-base = "#181b22"
-weak = "#181b22"
-strong = "#88969a"
+base = "{background}"
+weak = "{color0}"
+strong = "{color8}"

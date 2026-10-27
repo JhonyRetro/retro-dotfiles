@@ -28,6 +28,8 @@ sudo ln -sf "$HOME/.config/hypr/wallpapers/archlinux.png" "$HOME/.local/share/re
 
 if command -v wal &> /dev/null; then
 	wal -i "$HOME/.local/share/retro-dotfiles/current_wallpaper" -n -q
+	mkdir -p "$HOME/.config/ashell"
+	cp "$HOME/.cache/wal/ashell.toml" "$HOME/.config/ashell/config.toml"
 	echo "Color palette generated successfully."
 else
 	echo "Pywal is not installed, skipping..."

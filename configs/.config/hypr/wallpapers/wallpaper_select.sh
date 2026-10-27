@@ -30,15 +30,19 @@ reload_ashell() {
     ashell & disown
 }
 
-reload_hyprland(){
-    source "$HOME/.cache/wal/colors.sh"
-    C1="rgb(${color1:1})"
-    C2="rgb(${color2:1})"
-    BG="rgb(${background:1})"
-    
-    LUA_CMD="hl.config({ general = { col = { active_border = { colors = {'$C1', '$C2'}, angle = 45 }, inactive_border = '$BG' } } })"
+reload_ashell() {
+    local GENERATED="$HOME/.cache/wal/ashell.toml"
 
-    hyprctl eval "$LUA_CMD"
+    if [ ! -f "$GENERATED" ]; then
+        echo "Error: pywal has not generated $GENERATED."
+        return 1
+    fi
+
+    mkdir -p "$HOME/.config/ashell"
+    cp "$GENERATED" "$HOME/.config/ashell/config.toml"
+
+    killall ashell > /dev/null 2>&1
+    ashell & disown
 }
 
 WALLPAPER_DIR="$HOME/.config/hypr/wallpapers"
